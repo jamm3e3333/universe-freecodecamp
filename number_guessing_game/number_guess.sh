@@ -25,11 +25,11 @@ until [ $RANDOM_NUMBER == $NUMBER_GUESSED ]
 do
   echo "Guess the secret number between 1 and 1000:"
   read NUMBER_GUESSED
-  (( GUESS_COUNT++ ))
   if [[ ! $NUMBER_GUESSED =~ ^[0-9]+$ ]]
   then
     echo "That is not an integer, guess again:"
   else
+    (( GUESS_COUNT++ ))
     if [[ $NUMBER_GUESSED -gt $RANDOM_NUMBER ]]
     then
       echo "It's lower than that, guess again:"
